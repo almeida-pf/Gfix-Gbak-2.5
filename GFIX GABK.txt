@@ -1,0 +1,142 @@
+@echo OFF
+
+: aa
+
+MSG * Faca Backup do Banco de Dados
+
+:A
+
+cls
+:menu
+cls
+color A
+
+@date /t 
+@time /t
+
+echo Computador: %computername%        Usuario: %username%
+                   
+echo            MENU TAREFAS
+echo  ==================================
+echo * 1. Gfix e Gback  2.0             * 
+echo * 2. Gfix e Gback  2.5             *
+echo * 3. Escanear Disco Local          *
+echo * 4. Painel de Controle            *
+echo * 5. Sair                          *
+echo * 6. Ajuda                         * 
+echo  ==================================
+
+set /p opcao= Escolha uma opcao: 
+echo ------------------------------
+if %opcao% equ 1 goto opcao1
+if %opcao% equ 2 goto opcao2
+if %opcao% equ 3 goto opcao3
+if %opcao% equ 4 goto opcao4
+if %opcao% equ 5 goto opcao5
+if %opcao% GEQ 6 goto opcao6
+
+:opcao1
+cls
+
+echo Entre com sua senha para executar Script
+set /p username=master
+set/p "pass=>"
+
+if "%username%" == "master" goto acesso_negado
+if NOT %pass%== masterkey  goto :FAIL
+
+echo ==================================
+echo *      Gfix e Gback 2.0          *
+echo ==================================
+
+cd..
+cd..
+"c:\Program Files (x86)\firebird\firebird_2_0\bin\gfix" -mend -full -ignore C:\WINDEL\Dados\SISTEMA.FDB -user sysdba -pas masterkey"
+echo    ***********************************************
+echo    ***                                         ***
+echo    ***  LEITURA DE ERROS NO BANCO!             ***
+echo    ***                                         ***
+echo    ***********************************************
+pause
+"c:\Program Files (x86)\firebird\firebird_2_0\bin\gbak" -B -G -IG -L -V C:\WINDEL\Dados\SISTEMA.FDB C:\WINDEL\Dados\SISTEMA.GBK  -user sysdba -pas masterkey"
+"c:\Program Files (x86)\firebird\firebird_2_0\bin\gbak" -C -O -P 8192 -R -V -fix_fss_m iso8859_1 -fix_fss_d iso8859_1 C:\WINDEL\Dados\SISTEMA.GBK C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB -user sysdba -pas masterkey"
+"C:\Program Files (x86)\winRar\WinRAR.exe" a -agDDMMYYYY  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB.zip  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB
+echo ==================================
+echo *      Gfix e Gback 2.0          *
+echo ==================================
+pause
+goto menu
+
+:opcao2
+
+cls
+
+echo Entre com sua senha para executar Script
+set /p username=master
+set/p "pass=>"
+
+if "%username%" == "master" goto acesso_negado
+if NOT %pass%== masterkey  goto :FAIL
+
+echo ==================================
+echo *      Gfix e Gback (86) 2.5     *
+echo ==================================
+
+cd..
+cd..
+"c:\Program Files\firebird\firebird_2_5\bin\gfix" -mend -full -ignore C:\WINDEL\Dados\SISTEMA.FDB -user sysdba -pas masterkey"
+echo    ***********************************************
+echo    ***                                         ***
+echo    ***  LEITURA DE ERROS NO BANCO!             ***
+echo    ***                                         ***
+echo    ***********************************************
+pause
+"c:\Program Files\firebird\firebird_2_5\bin\gbak" -B -G -IG -L -V C:\WINDEL\Dados\SISTEMA.FDB C:\WINDEL\Dados\SISTEMA.GBK  -user sysdba -pas masterkey"
+"c:\Program Files\firebird\firebird_2_5\bin\gbak" -C -O -P 8192 -R -V -fix_fss_m iso8859_1 -fix_fss_d iso8859_1 C:\WINDEL\Dados\SISTEMA.gbk C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB -user sysdba -pas masterkey"
+"C:\Program Files (x86)\winRar\WinRAR.exe" a -agDDMMYYYY  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB.zip  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB
+echo ==================================
+echo *      Gfix e Gback     2.5      *
+echo ==================================
+pause
+goto menu
+
+:opcao3
+cls
+echo ==================================
+echo *     Escaneamento de disco      *
+echo ==================================
+chkdsk c:
+pause
+goto menu
+
+:opcao4
+cls
+control.exe
+pause
+goto menu
+
+:opcao5
+cls
+exit
+
+:opcao6
+echo --------------------------------------------------------------------
+echo          AJUDA DO DB REPAIR - BY PABLO ALMEIDA WPF SISTEMAS.
+echo ---------------------------------------------------------------------
+echo.
+echo.-Este programa foi concebido para funcionar em ambiente windows; 
+echo.-Para melhor funcionamento o arquivo deve ser executado na pasta \bin do firebird;
+echo.-Peca para todos sairem do sistema antes de executar este processo;
+echo.-Nao execute em micro-computador sem no-brak para evitar "Perda Total" dos dados;
+echo.-A WPF SISTEMAS NAO SE RESPONSABILIZA POR PERDA DOS DADOS GERADOS INCORRETAMENTE;
+echo.
+echo.
+pause
+goto menu
+
+:opcao7
+echo ==============================================
+echo * Opcao Invalida! Escolha outra opcao do menu *
+echo ==============================================
+pause
+goto menu
