@@ -60,7 +60,36 @@ echo    ***********************************************
 pause
 "c:\Program Files (x86)\firebird\firebird_2_0\bin\gbak" -B -G -IG -L -V C:\WINDEL\Dados\SISTEMA.FDB C:\WINDEL\Dados\SISTEMA.GBK  -user sysdba -pas masterkey"
 "c:\Program Files (x86)\firebird\firebird_2_0\bin\gbak" -C -O -P 8192 -R -V -fix_fss_m iso8859_1 -fix_fss_d iso8859_1 C:\WINDEL\Dados\SISTEMA.GBK C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB -user sysdba -pas masterkey"
-"C:\Program Files (x86)\winRar\WinRAR.exe" a -agDDMMYYYY  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB.zip  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB
+"C:\Program Files (x86)\winRar\WinRAR.exe" a -agDDMMYYYY  C:\WINDEL\Dados\SISTEMA_CORRIGIDO_2_0.FDB.zip  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB
+del /P /F /S C:\WINDEL\Dados\SISTEMA.GBK
+
+rem Parametros gbak
+
+rem -B "-BACKUP_DATABASE" Gera um backup
+
+rem -G "-GARBAGE_COLLECT" Nao realiza o processo de garbage collection durante o processo de backup, porem, e recomendado que voce sempre realize o garbage collect, pois o mesmo e responsavel por excluir as versoes de registro que nao sao mais necessarias.
+
+rem -IG "-IGNORE" Ignora os possiveis erros de checksum
+
+rem -L "LIMBO" 	Ignora todas as transacoes que por algum motivo nao foram confirmadas e nem descartadas.
+
+rem -V "-VERIFY" Mostra na tela todo o processo que esta sendo executado no backup/restore
+
+rem -C "-CREATE_DATABASE" Cria um banco de dados a partir de um arquivo de backup ja pronto
+
+rem -O "-ONE_ATE_A_TIME" Durante a restauracao da base de dados sera restaurada apenas uma tabela de cada vez
+
+rem -P "-PAGE_SIZE" Determina o tamanho das paginas que o banco restaurado usara
+
+rem -R "-REPLACE_DATABASE" Especifica que caso o banco informado para o restore ja exista, ele devera ser sobreposto
+
+rem Parametros comando Del
+
+rem /F - Apaga arquivos de somente leitura 
+
+rem /S - Apaga os arquivos da pasta atual e TAMBEM das subpastas
+ 
+rem /P Pede confirmacao
 echo ==================================
 echo *      Gfix e Gback 2.0          *
 echo ==================================
@@ -93,7 +122,36 @@ echo    ***********************************************
 pause
 "c:\Program Files\firebird\firebird_2_5\bin\gbak" -B -G -IG -L -V C:\WINDEL\Dados\SISTEMA.FDB C:\WINDEL\Dados\SISTEMA.GBK  -user sysdba -pas masterkey"
 "c:\Program Files\firebird\firebird_2_5\bin\gbak" -C -O -P 8192 -R -V -fix_fss_m iso8859_1 -fix_fss_d iso8859_1 C:\WINDEL\Dados\SISTEMA.gbk C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB -user sysdba -pas masterkey"
-"C:\Program Files (x86)\winRar\WinRAR.exe" a -agDDMMYYYY  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB.zip  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB
+"C:\Program Files (x86)\winRar\WinRAR.exe" a -agDDMMYYYY  C:\WINDEL\Dados\SISTEMA_CORRIGIDO_2_5.FDB.zip  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB
+del /P /F /S C:\WINDEL\Dados\SISTEMA.GBK
+
+rem Parametros gbak
+
+rem -B "-BACKUP_DATABASE" Gera um backup
+
+rem -G "-GARBAGE_COLLECT" Nao realiza o processo de garbage collection durante o processo de backup, porem, e recomendado que voce sempre realize o garbage collect, pois o mesmo e responsavel por excluir as versoes de registro que nao sao mais necessarias.
+
+rem -IG "-IGNORE" Ignora os possiveis erros de checksum
+
+rem -L "LIMBO" 	Ignora todas as transacoes que por algum motivo nao foram confirmadas e nem descartadas.
+
+rem -V "-VERIFY" Mostra na tela todo o processo que esta sendo executado no backup/restore
+
+rem -C "-CREATE_DATABASE" Cria um banco de dados a partir de um arquivo de backup ja pronto
+
+rem -O "-ONE_ATE_A_TIME" Durante a restauracao da base de dados sera restaurada apenas uma tabela de cada vez
+
+rem -P "-PAGE_SIZE" Determina o tamanho das paginas que o banco restaurado usara
+
+rem -R "-REPLACE_DATABASE" Especifica que caso o banco informado para o restore ja exista, ele devera ser sobreposto
+
+rem Parametros comando Del
+
+rem /F - Apaga arquivos de somente leitura 
+
+rem /S - Apaga os arquivos da pasta atual e TAMBEM das subpastas
+ 
+rem /P Pede confirmacao
 echo ==================================
 echo *      Gfix e Gback     2.5      *
 echo ==================================
@@ -121,7 +179,7 @@ exit
 
 :opcao6
 echo --------------------------------------------------------------------
-echo          AJUDA DO DB REPAIR - BY PABLO ALMEIDA WPF SISTEMAS.
+echo          AJUDA DO DBREPAIR -  PABLO ALMEIDA WPF SISTEMAS.
 echo ---------------------------------------------------------------------
 echo.
 echo.-Este programa foi concebido para funcionar em ambiente windows; 
