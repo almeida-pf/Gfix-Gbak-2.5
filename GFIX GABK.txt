@@ -34,6 +34,7 @@ if %opcao% equ 3 goto opcao3
 if %opcao% equ 4 goto opcao4
 if %opcao% equ 5 goto opcao5
 if %opcao% GEQ 6 goto opcao6
+if %opcao% GEQ 7 goto opcao7
 
 :opcao1
 cls
@@ -135,12 +136,13 @@ echo.-Nao execute em micro-computador sem no-brak para evitar "Perda Total" dos 
 echo.-A WPF SISTEMAS NAO SE RESPONSABILIZA POR PERDA DOS DADOS GERADOS INCORRETAMENTE;
 echo.
 echo.
-echo.
-echo. Parametros ultilizados no GIFIX  GBACK
+echo. PARAMETROS UTILIAZADO NO GIFIX  GBACK
 echo.
 echo. -B "-BACKUP_DATABASE" Gera um backup
 echo.
-echo. -G "-GARBAGE_COLLECT" Nao realiza o processo de garbage collection durante o processo de backup, porem, e recomendado que voce sempre realize o garbage collect, pois o mesmo e responsavel por excluir as versoes de registro que nao sao mais necessarias.
+echo. -G "-GARBAGE_COLLECT" Nao realiza o processo de garbage collection durante o processo de backup, 
+echo. porem, e recomendado que voce sempre realize o garbage collect, 
+echo. pois o mesmo e responsavel por excluir as versoes de registro que nao sao mais necessarias.
 echo.
 echo. -IG "-IGNORE" Ignora os possiveis erros de checksum
 echo.
@@ -165,13 +167,12 @@ echo. /S - Apaga os arquivos da pasta atual e TAMBEM das subpastas
 echo.
 echo. /P Pede confirmacao
 echo.
-echo.
 pause
 goto menu
 
 :opcao7
 echo ==============================================
-echo *        OPCAO INVALIDA TENTE OUTRA          *
+echo *     OPCAO INVALIDA TENTE OUTRA OPCAO       *
 echo ==============================================
 pause
 goto menu
