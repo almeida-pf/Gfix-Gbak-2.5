@@ -2,7 +2,7 @@
 
 : aa
 
-MSG * Faca Backup do Banco de Dados
+msg/time:5 /w * "CARREGANDO SCRIPT...FACA BACKUP DO BANDO DE DADOS" 
 
 :A
 
@@ -33,7 +33,7 @@ if %opcao% equ 2 goto opcao2
 if %opcao% equ 3 goto opcao3
 if %opcao% equ 4 goto opcao4
 if %opcao% equ 5 goto opcao5
-if %opcao% GEQ 6 goto opcao6
+if %opcao% equ 6 goto opcao6
 if %opcao% GEQ 7 goto opcao7
 
 :opcao1
@@ -171,8 +171,9 @@ pause
 goto menu
 
 :opcao7
-echo ==============================================
-echo *     OPCAO INVALIDA TENTE OUTRA OPCAO       *
-echo ==============================================
+echo. ==============================================
+echo. *     OPCAO INVALIDA TENTE OUTRA OPCAO       *
+echo. ==============================================
+echo.
 pause
 goto menu
