@@ -23,7 +23,8 @@ echo * 2. Gfix e Gback  2.5             *
 echo * 3. Escanear Disco Local          *
 echo * 4. Painel de Controle            *
 echo * 5. Sair                          *
-echo * 6. Ajuda                         * 
+echo * 6. Ajuda                         *  
+echo * 7. Entendedo GFIX GBACK          * 
 echo  ==================================
 
 set /p opcao= Escolha uma opcao: 
@@ -34,6 +35,7 @@ if %opcao% equ 3 goto opcao3
 if %opcao% equ 4 goto opcao4
 if %opcao% equ 5 goto opcao5
 if %opcao% GEQ 6 goto opcao6
+if %opcao% GEQ 7 goto opcao7
 
 :opcao1
 cls
@@ -63,33 +65,6 @@ pause
 "C:\Program Files (x86)\winRar\WinRAR.exe" a -agDDMMYYYY  C:\WINDEL\Dados\SISTEMA_CORRIGIDO_2_0.FDB.zip  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB
 del /P /F /S C:\WINDEL\Dados\SISTEMA.GBK
 
-rem Parametros gbak
-
-rem -B "-BACKUP_DATABASE" Gera um backup
-
-rem -G "-GARBAGE_COLLECT" Nao realiza o processo de garbage collection durante o processo de backup, porem, e recomendado que voce sempre realize o garbage collect, pois o mesmo e responsavel por excluir as versoes de registro que nao sao mais necessarias.
-
-rem -IG "-IGNORE" Ignora os possiveis erros de checksum
-
-rem -L "LIMBO" 	Ignora todas as transacoes que por algum motivo nao foram confirmadas e nem descartadas.
-
-rem -V "-VERIFY" Mostra na tela todo o processo que esta sendo executado no backup/restore
-
-rem -C "-CREATE_DATABASE" Cria um banco de dados a partir de um arquivo de backup ja pronto
-
-rem -O "-ONE_ATE_A_TIME" Durante a restauracao da base de dados sera restaurada apenas uma tabela de cada vez
-
-rem -P "-PAGE_SIZE" Determina o tamanho das paginas que o banco restaurado usara
-
-rem -R "-REPLACE_DATABASE" Especifica que caso o banco informado para o restore ja exista, ele devera ser sobreposto
-
-rem Parametros comando Del
-
-rem /F - Apaga arquivos de somente leitura 
-
-rem /S - Apaga os arquivos da pasta atual e TAMBEM das subpastas
- 
-rem /P Pede confirmacao
 echo ==================================
 echo *      Gfix e Gback 2.0          *
 echo ==================================
@@ -125,33 +100,6 @@ pause
 "C:\Program Files (x86)\winRar\WinRAR.exe" a -agDDMMYYYY  C:\WINDEL\Dados\SISTEMA_CORRIGIDO_2_5.FDB.zip  C:\WINDEL\Dados\SISTEMA_CORRIGIDO.FDB
 del /P /F /S C:\WINDEL\Dados\SISTEMA.GBK
 
-rem Parametros gbak
-
-rem -B "-BACKUP_DATABASE" Gera um backup
-
-rem -G "-GARBAGE_COLLECT" Nao realiza o processo de garbage collection durante o processo de backup, porem, e recomendado que voce sempre realize o garbage collect, pois o mesmo e responsavel por excluir as versoes de registro que nao sao mais necessarias.
-
-rem -IG "-IGNORE" Ignora os possiveis erros de checksum
-
-rem -L "LIMBO" 	Ignora todas as transacoes que por algum motivo nao foram confirmadas e nem descartadas.
-
-rem -V "-VERIFY" Mostra na tela todo o processo que esta sendo executado no backup/restore
-
-rem -C "-CREATE_DATABASE" Cria um banco de dados a partir de um arquivo de backup ja pronto
-
-rem -O "-ONE_ATE_A_TIME" Durante a restauracao da base de dados sera restaurada apenas uma tabela de cada vez
-
-rem -P "-PAGE_SIZE" Determina o tamanho das paginas que o banco restaurado usara
-
-rem -R "-REPLACE_DATABASE" Especifica que caso o banco informado para o restore ja exista, ele devera ser sobreposto
-
-rem Parametros comando Del
-
-rem /F - Apaga arquivos de somente leitura 
-
-rem /S - Apaga os arquivos da pasta atual e TAMBEM das subpastas
- 
-rem /P Pede confirmacao
 echo ==================================
 echo *      Gfix e Gback     2.5      *
 echo ==================================
@@ -194,7 +142,26 @@ goto menu
 
 :opcao7
 echo ==============================================
-echo * Opcao Invalida! Escolha outra opcao do menu *
+echo *        ENTENDENDO O GFIX GBACK             *
 echo ==============================================
+echo Parametros gbak
+
+echo. -B "-BACKUP_DATABASE" Gera um backup
+echo. -G "-GARBAGE_COLLECT" Nao realiza o processo de garbage collection durante o processo de backup, porem, e recomendado que voce sempre realize o garbage collect, pois o mesmo e responsavel por excluir as versoes de registro que nao sao mais necessarias.
+echo. -IG "-IGNORE" Ignora os possiveis erros de checksum
+echo. -L "LIMBO" 	Ignora todas as transacoes que por algum motivo nao foram confirmadas e nem descartadas.
+echo. -V "-VERIFY" Mostra na tela todo o processo que esta sendo executado no backup/restore
+echo. -C "-CREATE_DATABASE" Cria um banco de dados a partir de um arquivo de backup ja pronto
+echo. -O "-ONE_ATE_A_TIME" Durante a restauracao da base de dados sera restaurada apenas uma tabela de cada vez
+echo. -P "-PAGE_SIZE" Determina o tamanho das paginas que o banco restaurado usara
+echo. -R "-REPLACE_DATABASE" Especifica que caso o banco informado para o restore ja exista, ele devera ser sobreposto
+
+echo. -Parametros comando Del
+echo. /F - Apaga arquivos de somente leitura 
+echo. /S - Apaga os arquivos da pasta atual e TAMBEM das subpastas
+echo. /P Pede confirmacao
+echo.
+echo.
+
 pause
 goto menu
