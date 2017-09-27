@@ -1,10 +1,51 @@
-@echo OFF
+mode 75,20
+@echo off
 
 : aa
 
-msg/time:5 /w * "CARREGANDO SCRIPT...FACA BACKUP DO BANDO DE DADOS" 
+msg/time:2 /w * "CARREGANDO SCRIPT... FACA BACKUP DO BANDO DE DADOS" 
 
 :A
+
+title :: ::
+echo.
+echo                            [       15%%      ]
+echo.
+cecho                        {0A}圹{0F}北北北北北北北北北北北北眥\n}
+ping localhost -n 2.5 >nul
+cls
+echo.
+echo                            [       25%%      ]
+echo.
+cecho                        {0A}圹圹{0F}北北北北北北北北北北北眥\n}
+ping localhost -n 2.5 >nul
+cls
+echo.
+echo                            [       35%%      ]
+echo.
+cecho                        {0A}圹圹圹踸0F}北北北北北北北北北北{\n}
+ping localhost -n 2.5 >nul
+cls
+echo.
+echo                            [       50%%      ]
+echo.
+cecho                        {0A}圹圹圹圹圹圹圹圹{0F}北北北北北北北眥\n}
+ping localhost -n 2.0 >nul
+cls
+echo.
+echo                            [       75%%      ]
+echo.
+cecho                        {0A}圹圹圹圹圹圹圹圹圹圹{0F}北北北眥\n}
+ping localhost -n 2.5 >nul
+cls
+echo.
+echo                            [       100%%      ]
+echo.
+cecho                        {0A}圹圹圹圹圹圹圹圹圹圹圹圹圹踸\n}
+cecho {0f} {\n}
+echo.
+echo.
+echo                     PRECIONE ^<ENTER^> PARA CONTINUAR
 
 cls
 :menu
@@ -177,3 +218,5 @@ echo. ==============================================
 echo.
 pause
 goto menu
+
+pause>nul
